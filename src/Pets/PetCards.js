@@ -85,7 +85,7 @@ const PetCards = (props) => {
                                         {!adoptedArray.includes(`${pet._id}`) ? <Fragment><MDBBtn className="rounded" onClick={() => adoptPet(pet)} gradient="peach">Adopt</MDBBtn></Fragment> : <Fragment><MDBBtn className="rounded" onClick={() => returnPet(pet)} gradient="peach">Return</MDBBtn></Fragment>}
                                     </Row>
                                     {!savedArray.includes(`${pet._id}`) ? <p style={{ fontSize: "18px" }} className="mr-2 mb-n1">Save</p> : <p style={{ fontSize: "18px" }} className="mr-2 mb-n1">Unsave</p>}
-                                    {!savedArray.includes(`${pet._id}`) ? <FontAwesomeIcon color="red" style={{ cursor: "pointer" }} onClick={() => savePet(pet)} className="mr-2 awesome-icon" icon={regularHeart}></FontAwesomeIcon> : <FontAwesomeIcon color="red" onClick={() => unSavePet(pet)} className=" awesome-icon" icon={solidHeart}></FontAwesomeIcon>}
+                                    {!savedArray.includes(`${pet._id}`) ? <FontAwesomeIcon color="red" style={{ cursor: "pointer" }} onClick={() => savePet(pet)} className="mr-2 awesome-icon" icon={regularHeart}></FontAwesomeIcon> : <FontAwesomeIcon style={{ cursor: "pointer" }} color="red" onClick={() => unSavePet(pet)} className=" awesome-icon" icon={solidHeart}></FontAwesomeIcon>}
                                 </CardFooter>
                                 :
                                 null}
