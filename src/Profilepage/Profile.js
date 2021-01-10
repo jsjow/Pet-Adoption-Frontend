@@ -17,7 +17,7 @@ const Profile = () => {
 
     useEffect(() => {
         axios.get(base_URL + `/profile/${localStorage.getItem("sessionID")}`)
-            .then(res =>
+            .then(res => (
                 setUserDocument(res.data),
                 setFirstname(res.data.firstname),
                 setLastname(res.data.lastname),
@@ -25,7 +25,7 @@ const Profile = () => {
                 setPassword(res.data.password),
                 setPhoneNumber(res.data.phoneNumber),
                 setBio(res.data.bio)
-            )
+            ))
             .catch(err => console.log(err));
     }, [])
 

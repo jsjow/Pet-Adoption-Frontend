@@ -20,7 +20,7 @@ const AdminDashBoard = () => {
         const token = localStorage.getItem("token");
         const config = { headers: { Authorization: "Bearer " + token } }
         axios.get(base_URL + '/admindashboard', config)
-            .then(res => setUsers(res.data.users), setPets(res.data.pets))
+            .then(res => (setUsers(res.data.users), setPets(res.data.pets)))
             .catch(err => console.log("There was an issue fetching the information"))
     }, [])
 
