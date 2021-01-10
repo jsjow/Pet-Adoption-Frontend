@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row, Button, Form, Input } from "reactstrap";
 import { checkForAdmin } from '../fetch';
 import axios from 'axios';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { petUploaded, formIssue } from '../WebsiteResponses/WebsiteResponses';
 const base_URL = "https://pet-adoption-heroku-react.herokuapp.com";
 
@@ -22,9 +22,9 @@ const AddPet = (props) => {
     const [dietaryRestrictions, setDietaryRestrictions] = useState('');
     const [breed, setBreed] = useState('');
     const [allBreeds, setAllBreeds] = useState([]);
-    const [editState, setEditState] = useState(props.location.state);
     const history = useHistory();
     const petDocument = { type, breed, gender, name, adoptionStatus, height, weight, color, bio, hypoAllergenic, dietaryRestrictions }
+    const editState = props.location.state;
 
     useEffect(() => {
         checkForAdmin(setAdminConfirmation, true, false);
@@ -34,7 +34,7 @@ const AddPet = (props) => {
         axios.get("https://dog.ceo/api/breeds/list/all")
             .then(res => setAllBreeds(Object.keys(res.data.message)))
             .catch(err => console.log(err));
-    }, [])
+    }, [editState])
 
     const formCheck = () => {
         for (let i of Object.values(petDocument)) {
@@ -83,7 +83,7 @@ const AddPet = (props) => {
         if (!formCheck()) {
             return formIssue("Form must be completed");
         }
-        axios.put(base_URL + '/edit-pet/${id}', appendFormData())
+        axios.put(base_URL + `/edit-pet/${id}`, appendFormData())
             .then(res => petUploaded("Pet edited"), redirectToHome()).catch(err => formIssue("Couldn't edit pet"));
     }
 
@@ -95,7 +95,7 @@ const AddPet = (props) => {
                         <Input type="file" className="mt-5 file-input" onChange={setImage}></Input>
                     </Row>
                     <Row className="justify-content-center">
-                        <img className="admin-img mt-4 ml-3 rounded" style={{ width: "400px", height: "260px" }} src={file != null || editState == null ? fileUrl : editState.image}></img>
+                        <img className="admin-img mt-4 ml-3 rounded" alt="Pet" style={{ width: "400px", height: "260px" }} src={file != null || editState == null ? fileUrl : editState.image}></img>
                     </Row>
                     <Row className="justify-content-center">
                         <ul style={{ listStyleType: "none" }} className="col-sm-6 col-10">

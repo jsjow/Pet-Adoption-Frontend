@@ -14,7 +14,7 @@ const PetModal = (props) => {
                 <Button className="col-1 mr-5 mt-3" onClick={() => props.setOpenMe(false)} color="danger">X</Button>
             </Row>
             <Row className="justify-content-center mb-4">
-                <img style={{ maxWidth: "450px", maxHeight: "400px" }} className="img-fluid mb-4 col-10 rounded" src={props.myImage} alt="Card image cap" />
+                <img style={{ maxWidth: "450px", maxHeight: "400px" }} alt="Pet" className="img-fluid mb-4 col-10 rounded" src={props.myImage} />
                 <title className="mb-4 mt-2">{props.pet.name}</title>
             </Row>
             <Row className="justify-content-center">

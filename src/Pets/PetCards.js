@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Row, Container, CardBody, CardTitle, CardText, Card, CardImg, CardFooter, Button } from 'reactstrap';
+import { Row, Container, CardBody, CardTitle, CardText, Card, CardImg, CardFooter } from 'reactstrap';
 import axios from 'axios';
 import PetModal from './PetModal';
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +21,7 @@ const PetCards = (props) => {
             .then(res => setSavedArray(res.data.savedPets))
             .catch(err => console.log(err))
         }
-    }, [])
+    }, [props.account])
 
     useEffect(() => {
         if (props.account) { 
@@ -29,7 +29,7 @@ const PetCards = (props) => {
             .then(res => setAdoptedArray(res.data.fosteringPets))
             .catch(err => console.log(err))
         }
-    }, [])
+    }, [props.account])
 
     const selectedPet = (pet) => {
         setCurrentPet(pet);
@@ -74,7 +74,7 @@ const PetCards = (props) => {
                 {props.pets.map((pet) => {
                     return (
                         <Card id={pet._id} key={pet._id} className="border col-lg-3 col-8 p-4 mr-4 ml-4 mt-4 mb-1 pet-cards">
-                            <CardImg style={{ maxWidth: "500px", maxHeight: "350px" }} style={{ cursor: "pointer" }} onClick={() => selectedPet(pet)} className="img-fluid rounded image-gallery" src={(pet.image)} alt="Card image cap" />
+                            <CardImg style={{ maxWidth: "500px", maxHeight: "350px" }} style={{ cursor: "pointer" }} alt="Pet" onClick={() => selectedPet(pet)} className="img-fluid rounded image-gallery" src={(pet.image)} />
                             <CardBody style={{ cursor: "pointer" }} onClick={() => selectedPet(pet)}>
                                 <CardTitle tag="h5" className="mb-4 mt-2">{pet.name}</CardTitle>
                                 <CardText><span className="font-weight-bold">Breed:</span> {pet.breed}</CardText>

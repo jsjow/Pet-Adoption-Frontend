@@ -15,9 +15,9 @@ const Profile = () => {
     const [userDocument, setUserDocument] = useState('');
     const [details, setDetails] = useState({});
 
-    useEffect(async () => {
+    useEffect(() => {
         axios.get(base_URL + `/profile/${localStorage.getItem("sessionID")}`)
-            .then(res => (
+            .then(res =>
                 setUserDocument(res.data),
                 setFirstname(res.data.firstname),
                 setLastname(res.data.lastname),
@@ -25,14 +25,14 @@ const Profile = () => {
                 setPassword(res.data.password),
                 setPhoneNumber(res.data.phoneNumber),
                 setBio(res.data.bio)
-            ))
+            )
             .catch(err => console.log(err));
     }, [])
 
     useEffect(() => {
         if (userDocument.firstname !== firstname || userDocument.lastname !== lastname || userDocument.email !== email || password.length > 0 || userDocument.phoneNumber !== phoneNumber || userDocument.bio !== bio) {
             setIsDisabled(false);
-            setDetails({firstname, lastname, email, password, phoneNumber, bio});
+            setDetails({ firstname, lastname, email, password, phoneNumber, bio });
         }
         else {
             setIsDisabled(true);
@@ -43,25 +43,25 @@ const Profile = () => {
         <Container className="d-flex flex-column align-items-center rounded col-md-10 col-12 pb-5 mt-3 mb-5">
             <h1 className="mt-5 mb-4 login-title mr-4">Profile</h1>
             <Form className="col-sm-5 col-12 mt-3 ml-5">
-                <Row style={{ marginLeft: "0", paddingLeft:"0" }}>
-                    <FormGroup style={{ marginLeft: "0", paddingLeft:"0" }} className=" col-5">
+                <Row style={{ marginLeft: "0", paddingLeft: "0" }}>
+                    <FormGroup style={{ marginLeft: "0", paddingLeft: "0" }} className=" col-5">
                         <Label>First Name</Label>
                         <Input value={firstname} type="text" onChange={(e) => setFirstname(e.target.value)} />
                     </FormGroup>
-                    <FormGroup style={{ marginLeft: "0", paddingLeft:"0" }} className="ml-2  col-5">
+                    <FormGroup style={{ marginLeft: "0", paddingLeft: "0" }} className="ml-2  col-5">
                         <Label>Last Name</Label>
                         <Input value={lastname} type="text" onChange={(e) => setLastname(e.target.value)} />
                     </FormGroup>
                 </Row>
-                <FormGroup style={{ marginLeft: "0", paddingLeft:"0" }} className="col-10">
+                <FormGroup style={{ marginLeft: "0", paddingLeft: "0" }} className="col-10">
                     <Label>Email</Label>
                     <Input value={email} type="email" onChange={(e) => setEmail(e.target.value)} />
                 </FormGroup>
-                <FormGroup style={{ marginLeft: "0", paddingLeft:"0" }} className="col-10">
+                <FormGroup style={{ marginLeft: "0", paddingLeft: "0" }} className="col-10">
                     <Label>Password</Label>
                     <Input type="password" onChange={(e) => setPassword(e.target.value)} />
                 </FormGroup>
-                <FormGroup style={{ marginLeft: "0", paddingLeft:"0" }} className="col-10">
+                <FormGroup style={{ marginLeft: "0", paddingLeft: "0" }} className="col-10">
                     <Label>Phone Number</Label>
                     <Input value={phoneNumber} type="tel" onChange={(e) => setPhoneNumber(e.target.value)} />
                 </FormGroup>

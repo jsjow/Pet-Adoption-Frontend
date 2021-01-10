@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Signup } from '../fetch';
 import { Authentication } from '../contexts/Authentication';
 import { invalidFields } from '../WebsiteResponses/WebsiteResponses';
-const base_URL = "https://pet-adoption-heroku-react.herokuapp.com";
 
 const SignUp = (props) => {
   const [firstname, setFirstname] = useState('');

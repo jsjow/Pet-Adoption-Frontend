@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputGroup, Input, InputGroupAddon, Button, Row, Label } from 'reactstrap';
+import { InputGroup, Input, InputGroupAddon, Button, Row } from 'reactstrap';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PetCards from '../Pets/PetCards';
