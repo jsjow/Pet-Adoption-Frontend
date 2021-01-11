@@ -74,7 +74,7 @@ const PetCards = (props) => {
                 {props.pets.map((pet) => {
                     return (
                         <Card id={pet._id} key={pet._id} className="border col-lg-3 col-10 p-2 mr-4 ml-4 mt-4 mb-1 pet-cards">
-                            <CardImg style={{ cursor: "pointer", maxWidth: "100%" }} alt="Pet" onClick={() => selectedPet(pet)} className="img-fluid rounded image-gallery" src={(pet.image)} />
+                            <CardImg style={{ cursor: "pointer", maxWidth: "100%" }} alt="Pet" onClick={() => selectedPet(pet)} className="rounded image-gallery" src={(pet.image)} />
                             <CardBody style={{ cursor: "pointer" }} onClick={() => selectedPet(pet)}>
                                 <CardTitle tag="h5" className="mb-4 mt-2">{pet.name}</CardTitle>
                                 <CardText><span className="font-weight-bold">Breed:</span> {pet.breed}</CardText>
