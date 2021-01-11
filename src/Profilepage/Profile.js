@@ -40,9 +40,9 @@ const Profile = () => {
     }, [firstname, lastname, email, password, phoneNumber, bio])
 
     return (
-        <Container className="d-flex flex-column align-items-center rounded col-md-10 col-12 pb-5 mt-3 mb-5">
-            <h1 className="mt-5 mb-4 login-title mr-4">Profile</h1>
-            <Form className="col-sm-5 col-12 mt-3 ml-5">
+        <Container className="d-flex flex-column align-items-center rounded col-sm-10 col-12 mt-4 mb-2">
+            <h1 className="mt-4 mb-4 login-title">Profile</h1>
+            <Form className="col-sm-8 col-12 mt-1 offset-2">
                 <Row style={{ marginLeft: "0", paddingLeft: "0" }}>
                     <FormGroup style={{ marginLeft: "0", paddingLeft: "0" }} className=" col-5">
                         <Label>First Name</Label>
@@ -65,7 +65,7 @@ const Profile = () => {
                     <Label>Phone Number</Label>
                     <Input value={phoneNumber} type="tel" onChange={(e) => setPhoneNumber(e.target.value)} />
                 </FormGroup>
-                <FormGroup>
+                <FormGroup style={{width:"78%"}}>
                     <Label for="exampleText">Bio</Label>
                     <Input type="textarea" value={bio} type="textarea" onChange={(e) => setBio(e.target.value)} placeholder="A short description of yourself and why you joined us." />
                 </FormGroup>

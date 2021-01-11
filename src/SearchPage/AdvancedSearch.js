@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputGroup, Row, Button, Input, Label } from 'reactstrap';
+import { InputGroup, Row, Button, Input, Label, Form, FormGroup } from 'reactstrap';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PetCards from '../Pets/PetCards';
@@ -21,55 +21,49 @@ const AdvancedSearch = () => {
 
     return (
         <div>
-            <form className='mt-5 justify-content-center'>
-                <div className="justify-content-center d-flex">
-                    <Row className="col-8 align-items-center">
-                        <InputGroup className="col-5 align-items-center">
-                            <Label className="mr-3 cursor-pointer">Pet Type: </Label>
-                            <Input id="pets" type="select" onChange={(e) => setAdvancedType(e.target.value)}>
-                                <option value="" selected>Choose here</option>
-                                <option value="Dog">Dog</option>
-                                <option value="Cat">Cat</option>
-                                <option value="Bird">Bird</option>
-                            </Input>
-                        </InputGroup>
-                        <InputGroup className="col-5">
-                            <Label className="mr-3 cursor-pointer">Adopted: </Label>
-                            <Input className="" id="pets" type="select" onChange={(e) => setAdvancedAdoption(e.target.value)}>
-                                <option value="" selected>Choose here</option>
-                                <option value="No">No</option>
-                                <option value="Yes">Yes</option>
-                            </Input>
-                        </InputGroup>
+            <Form className='mt-4'>
+                <Row className="mb-3">
+                    <Row className="col-4 offset-2 align-items-center">
+                        <Label>Pet Type: </Label>
+                        <Input className="mb-2" id="pets" type="select" onChange={(e) => setAdvancedType(e.target.value)}>
+                            <option value="" selected>Choose here</option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Bird">Bird</option>
+                        </Input>
+                        <Label>Adopted: </Label>
+                        <Input id="pets" type="select" onChange={(e) => setAdvancedAdoption(e.target.value)}>
+                            <option value="" selected>Choose here</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </Input>
                     </Row>
-                </div>
-                <div className="justify-content-center d-flex mt-5">
-                    <Row className="col-8 align-items-center">
-                        <InputGroup className="align-items-center">
-                            <Label className="mr-3 cursor-pointer">Weight: </Label>
-                            <Input id="pets" type="select" onChange={(e) => setAdvancedWeight(e.target.value)}>
-                                <option value="" selected>Choose here</option>
-                                <option value="4kg - 10kg">4kg - 10kg</option>
-                                <option value="10kg - 18kg">10kg - 18kg</option>
-                                <option value="18kg - 24kg">18kg - 24kg</option>
-                                <option value="24kg - 40kg">24kg - 40kg</option>
-                            </Input>
-                            <Label className="mr-3 ml-3 cursor-pointer">Height: </Label>
-                            <Input className="" id="pets" type="select" onChange={(e) => setAdvancedHeight(e.target.value)}>
-                                <option value="" selected>Choose here</option>
-                                <option value="0.5m - 0.8m">0.5m - 0.8m</option>
-                                <option value="0.8m - 1.2m">0.8m - 1.2m</option>
-                                <option value="1.2m - 1.6m">1.2m - 1.6m</option>
-                            </Input>
-                            <Label className="mr-3 ml-3 cursor-pointer">Name: </Label>
-                            <Input id="pets" type="text" onChange={(e) => setAdvancedName(e.target.value)} />
-                        </InputGroup>
+                    <Row className="col-4 align-items-center ml-4">
+                        <Label>Weight: </Label>
+                        <Input className="mb-2" id="pets" type="select" onChange={(e) => setAdvancedWeight(e.target.value)}>
+                            <option value="" selected>Choose here</option>
+                            <option value="4kg - 10kg">4kg - 10kg</option>
+                            <option value="10kg - 18kg">10kg - 18kg</option>
+                            <option value="18kg - 24kg">18kg - 24kg</option>
+                            <option value="24kg - 40kg">24kg - 40kg</option>
+                        </Input>
+                        <Label>Height: </Label>
+                        <Input id="pets" type="select" onChange={(e) => setAdvancedHeight(e.target.value)}>
+                            <option value="" selected>Choose here</option>
+                            <option value="0.5m - 0.8m">0.5m - 0.8m</option>
+                            <option value="0.8m - 1.2m">0.8m - 1.2m</option>
+                            <option value="1.2m - 1.6m">1.2m - 1.6m</option>
+                        </Input>
                     </Row>
-                </div>
+                </Row>
+                <Row className="col-4 offset-4">
+                    <Label className="cursor-pointer">Name: </Label>
+                    <Input id="pets" type="text" onChange={(e) => setAdvancedName(e.target.value)} />
+                </Row>
                 <Row className="align-items-center flex-column">
                     <Button onClick={sendAdvancedSearch} color="primary" className="col-md-1 col-3 mt-5"><FontAwesomeIcon icon={faSearch} /></Button>
                 </Row>
-            </form>
+            </Form>
             <PetCards account={true} pets={searchedPets} />
         </div>
     )

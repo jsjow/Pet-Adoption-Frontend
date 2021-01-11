@@ -56,7 +56,6 @@
 
 .navybar {
   list-style-type: none;
-  justify-content: space-evenly;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   height: 70px;
 }
@@ -92,7 +91,12 @@
 
 .admin-img {
   max-width: 500px;
-  border: lightgreen 5px solid;
+  border: grey 1px solid;
+}
+
+.admin-img-wrapper {
+  display: inline-block;
+  overflow: hidden;
 }
 
 .cards-row {
@@ -140,6 +144,7 @@ animation-duration: 0.2s;
 .dropdown-item {
   font-size: 16px; 
   text-decoration: none;
+  z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
@@ -166,3 +171,4 @@ animation-duration: 0.2s;
 .file-input {
   margin-left: 40%;
 }
+

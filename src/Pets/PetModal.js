@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Row, Button, CardFooter, Modal } from 'reactstrap';
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/fontawesome-free-regular";
@@ -9,16 +9,16 @@ import { MDBBtn } from 'mdbreact';
 const PetModal = (props) => {
 
     return (
-        <Modal style={{ maxWidth: "800px" }} isOpen={props.openMe}>
+        <Modal toggle={() => props.setOpenMe(false)} style={{ maxWidth: "650px" }} className="mt-5" isOpen={props.openMe}>
             <Row className="justify-content-end">
-                <Button className="col-1 mr-5 mt-3" onClick={() => props.setOpenMe(false)} color="danger">X</Button>
+                <Button style={{ boxShadow: "none", outline: "none", height: "40px" }} className="mr-5 mt-3 d-none" onClick={() => props.setOpenMe(false)} color="danger">X</Button>
             </Row>
-            <Row className="justify-content-center mb-4">
-                <img style={{ maxWidth: "450px", maxHeight: "400px" }} alt="Pet" className="img-fluid mb-4 col-10 rounded" src={props.myImage} />
+            <Row className="justify-content-center mb-4 mt-4">
+                <img alt="Pet" style={{ maxWidth: "80%", maxHeight: "80%" }} className="img-fluid mb-3 rounded mt-3" src={props.myImage} />
                 <title className="mb-4 mt-2">{props.pet.name}</title>
             </Row>
             <Row className="justify-content-center">
-                <ul style={{ listStyleType: "none", backgroundColor: "lightgreen" }} className="border col-sm-8 col-11 rounded pt-3 align-items-center"><Row className="mb-4"><li className="col-4"><span className="font-weight-bold">Name:</span> {props.pet.name}</li> <li className="col-4"><span className="font-weight-bold ">Type: </span> {props.pet.type}</li><li className="col-4"><span className="font-weight-bold">Breed:</span> {props.pet.breed}</li></Row >
+                <ul style={{ listStyleType: "none", backgroundColor: "lightgreen" }} className="border col-10 rounded pt-3 align-items-center"><Row className="mb-4"><li className="col-4"><span className="font-weight-bold">Name:</span> {props.pet.name}</li> <li className="col-4"><span className="font-weight-bold ">Type: </span> {props.pet.type}</li><li className="col-4"><span className="font-weight-bold">Breed:</span> {props.pet.breed}</li></Row >
                     <Row className="mb-4"><li className="col-4"><span className="font-weight-bold">Adopted:</span>{props.pet.adopted}</li>
                         <li className="col-4"><span className="font-weight-bold">Gender: </span> {props.pet.gender}</li>
                         <li className="col-4"><span className="font-weight-bold">Color: </span> {props.pet.color}</li></Row>

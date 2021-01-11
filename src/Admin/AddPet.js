@@ -95,7 +95,9 @@ const AddPet = (props) => {
                         <Input type="file" className="mt-5 file-input" onChange={setImage}></Input>
                     </Row>
                     <Row className="justify-content-center">
-                        <img className="admin-img mt-4 ml-3 rounded" alt="Pet" style={{ width: "400px", height: "260px" }} src={file != null || editState == null ? fileUrl : editState.image}></img>
+                        <div className="admin-img-wrapper">
+                            <img className="admin-img mt-4 ml-3 rounded" alt="Pet" style={{ width: "400px", height: "260px" }} src={file != null || editState == null ? fileUrl : editState.image}></img>
+                        </div>
                     </Row>
                     <Row className="justify-content-center">
                         <ul style={{ listStyleType: "none" }} className="col-sm-6 col-10">

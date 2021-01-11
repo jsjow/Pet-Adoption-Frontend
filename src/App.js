@@ -26,7 +26,7 @@ const App = () => {
   }, [])
 
   return (
-    <Container style={{ margin: "0", padding: '0' }} fluid>
+    <Container fluid>
       <Authentication.Provider value={{ authenticated, setAuthenticated }}>
         {!authenticated ? (
           <Router>
@@ -39,7 +39,7 @@ const App = () => {
           </Router>
         ) : (
             <Router>
-              <div className="p-3 pt-4 login-title bg-white rounded flex-column text-center">
+              <div className="pt-4 login-title bg-white rounded flex-column text-center">
                 <h3 className="font-weight-bold">Buddy &amp; Me</h3>
               </div>
               <Navigation isAdmin={adminConfirmation} />

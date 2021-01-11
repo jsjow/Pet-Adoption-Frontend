@@ -23,7 +23,7 @@ const Navigation = () => {
   return (
     <div>
       <Row className="justify-content-center mt-3">
-        <Navbar style={{backgroundColor: 'white'}} className="flex-row justify-content-between navybar border rounded col-sm-9 col-12 p-2 pr-4 pl-4">
+        <Navbar style={{backgroundColor: 'white'}} className="flex-row justify-content-between navybar rounded col-sm-9 col-10 ">
           <li className="rounded-circle navbar-logos pl-1 pr-1">
             <div style={{ cursor: 'pointer' }} class="dropdown text-decoration-none nav-list text-dark">
               <FontAwesomeIcon className="navbar-logos" icon={faHome} />
@@ -43,7 +43,7 @@ const Navigation = () => {
             </div>
           </li>
           <li className="rounded-circle navbar-logos pl-1 pr-1">
-            <div style={{ cursor: 'pointer' }} class="dropdown text-decoration-none nav-list text-dark">
+            <div style={{ cursor: 'pointer', right: "0;" }} class="dropdown float-right text-decoration-none nav-list text-dark">
               <FontAwesomeIcon icon={faSearch} />
               <div class="dropdown-content rounded">
                 <Link to="/search" className="dropdown-item rounded">Search Pets</Link>
