@@ -10,7 +10,7 @@ const validateEmail = (email) => {
 }
 
 const validatePassword = (password) => {
-  const re = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
+  const re = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[#?!@$%^&*\-_]).{8,}$/;
   return re.test(password);
 }
 
@@ -23,7 +23,7 @@ const checkFields = (userDetails) => {
     return invalidFields("Please use a valid email address");
   }
   if (!validatePassword(password)) {
-    return invalidFields("Your password must have a minimum of 8 characters including at least one number")
+    return invalidFields("Your password must have a minimum of 8 characters, 1 special character, and 1 uppercase letter")
   }
   if (phoneNumber.length < 10) {
     return invalidFields("Please enter a valid phone number")
