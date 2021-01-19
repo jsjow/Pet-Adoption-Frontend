@@ -110,10 +110,12 @@
     width: 500px;
     margin-bottom: 10%;
   }
+}
+
+@media (max-width: 650px) {
   .navybar {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    position: fixed;
+    bottom: 0;
   }
 }
 

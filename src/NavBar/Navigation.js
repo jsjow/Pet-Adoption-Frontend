@@ -21,9 +21,8 @@ const Navigation = () => {
   }
 
   return (
-    <div>
       <Row className="justify-content-center mt-3">
-        <Navbar style={{backgroundColor: 'white'}} className="flex-row justify-content-between navybar rounded col-sm-9 col-10 ">
+        <Navbar style={{backgroundColor: 'white'}} className="flex-row justify-content-between navybar rounded col-sm-9 col-11">
           <li className="rounded-circle navbar-logos pl-1 pr-1">
             <div style={{ cursor: 'pointer' }} class="dropdown text-decoration-none nav-list text-dark">
               <FontAwesomeIcon className="navbar-logos" icon={faHome} />
@@ -80,7 +79,6 @@ const Navigation = () => {
           </li>
         </Navbar>
       </Row>
-    </div>
   );
 };
 
